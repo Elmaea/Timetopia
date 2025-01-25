@@ -1,0 +1,63 @@
+/* General Styling */
+body {
+    font-family: "Georgia", serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f4e9; /* Vintage parchment background */
+    color: #4a3c2c; /* Vintage dark brown text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Container */
+  .container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Header */
+  .header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .header p {
+    font-size: 1.2rem;
+    color: #5a4a3a;
+    margin-bottom: 30px;
+  }
+  
+  /* Button Group */
+  .button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .button-group button {
+    background-color: #d4b483;
+    color: #4a3c2c;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .button-group button:hover {
+    background-color: #c4a174;
+  }
+  
+  /* Footer */
+  .footer {
+    font-size: 0.9rem;
+    color: #5a4a3a;
+    margin-top: 20px;
+  }
+  
