@@ -1,3 +1,5 @@
+<!-- map.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,22 +25,6 @@
       border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
       z-index: 1000;
-    }
-    .popup-buttons {
-      display: flex;
-      justify-content: space-between;
-    }
-    .popup-buttons button {
-      margin-top: 10px;
-      padding: 5px 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .popup-buttons button:hover {
-      background-color: #45a049;
     }
   </style>
 </head>
@@ -75,40 +61,30 @@
     // Era-specific data
     const eraData = {
       '18th': [
-        { name: "Philadelphia, USA", description: "The birthplace of American freedom, where the Declaration of Independence was signed, and revolutionary ideas sparked a new nation.", lat: 39.9526, lng: -75.1652 },
-        { name: "Paris, France", description: "The intellectual hub of the Age of Enlightenment and the heart of the French Revolution, where liberty and reason collided with passion.", lat: 48.8566, lng: 2.3522 },
-        { name: "Vienna, Austria", description: "A cultural gem where Mozart and Haydn’s music echoed through grand halls, all under the power of the mighty Habsburg Empire.", lat: 48.2082, lng: 16.3738 }     
+        { name: "Philadelphia, USA", description: "The birthplace of American freedom, where the Declaration of Independence was signed.", lat: 39.9526, lng: -75.1652 },
+        { name: "Paris, France", description: "The intellectual hub of the Age of Enlightenment and the heart of the French Revolution.", lat: 48.8566, lng: 2.3522 },
+        { name: "Vienna, Austria", description: "A cultural gem where Mozart and Haydn’s music echoed.", lat: 48.2082, lng: 16.3738 }
       ],
       '19th': [
-        { name: "British Empire Expansion", description: "At its peak, the British Empire controlled vast territories across the globe.", lat: 51.5074, lng: -0.1278 },
-        { name: "Meiji Restoration (Japan)", description: "Japan underwent rapid modernization and industrialization during the Meiji period.", lat: 35.6895, lng: 139.6917 }
+        { name: "British Empire Expansion", description: "At its peak, the British Empire controlled vast territories.", lat: 51.5074, lng: -0.1278 },
+        { name: "Meiji Restoration (Japan)", description: "Japan modernized rapidly during the Meiji period.", lat: 35.6895, lng: 139.6917 }
       ],
       '20th': [
-        { name: "World War II Europe", description: "The devastation of World War II reshaped Europe and the global order.", lat: 48.8566, lng: 2.3522 },
+        { name: "World War II Europe", description: "The devastation of WWII reshaped Europe.", lat: 48.8566, lng: 2.3522 },
         { name: "Space Race (USA)", description: "The USA's space race led to monumental achievements like the moon landing in 1969.", lat: 29.7604, lng: -95.3698 }
       ],
       '21st': [
         { name: "Global Technology Hub", description: "San Francisco became the global center for technological innovation.", lat: 37.7749, lng: -122.4194 },
-        { name: "Sustainability Efforts", description: "Countries worldwide are working on sustainability initiatives to address global climate challenges.", lat: 55.7558, lng: 37.6173 }
+        { name: "Sustainability Efforts", description: "Countries worldwide are working on sustainability initiatives.", lat: 55.7558, lng: 37.6173 }
       ]
     };
-
-    // Debugging step: Check if data exists for the era
-    console.log(eraData[era]);
 
     // Add markers to the map for the selected era
     if (eraData[era]) {
       eraData[era].forEach(location => {
-        // Debugging: Check each location
-        console.log(location);
-
         const popupContent = `
           <b>${location.name}</b><br>
           ${location.description}
-          <div class="popup-buttons">
-            <button onclick="window.location.href='historical_figures1.html?location=${encodeURIComponent(location.name)}'">Historical Figures</button>
-            <button onclick="window.location.href='historical_events.html?location=${encodeURIComponent(location.name)}'">Events</button>
-          </div>
         `;
 
         L.marker([location.lat, location.lng])

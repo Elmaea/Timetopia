@@ -116,7 +116,7 @@ body.homepage{
   
   .timeline-item:hover {
     transform: scale(1.05); /* Slight zoom effect */
-    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3); /* Glow effect */
+    box-shadow: 0 6px 15px rgba(255, 2, 2, 0.39); /* Glow effect */
   }
   
   .timeline-item:last-child {
@@ -128,7 +128,7 @@ body.homepage{
     color: #fff;
     transform: scale(1.1); /* Emphasize active section */
     z-index: 1;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
   }
   
   .timeline-item h3 {
