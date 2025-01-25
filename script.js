@@ -4,57 +4,64 @@ function navigate(page) {
   }
   
   const timeline = document.querySelector('.timeline');
-const timelineData = [
-  { title: 'Section 1', description: 'Description of Section 1.' },
-  { title: 'Section 2', description: 'Description of Section 2.' },
-  { title: 'Section 3', description: 'Description of Section 3.' },
-  { title: 'Section 4', description: 'Description of Section 4.' },
-  { title: 'Section 5', description: 'Description of Section 5.' },
-];
-
-// Dynamically populate the timeline
-function loadTimelineItems(data) {
-  data.forEach((item, index) => {
-    const timelineItem = document.createElement('div');
-    timelineItem.classList.add('timeline-item');
-    if (index === 0) timelineItem.classList.add('active'); // Highlight the first item initially
-
-    timelineItem.innerHTML = `
-      <div class="content">
+  const timelineData = [
+    { title: '18th Century', description: 'Description of Section 1.', url: 'map.html' },
+    { title: '19th Century', description: 'Description of Section 2.', url: 'map.html' },
+    { title: '20th Century', description: 'Description of Section 3.', url: 'map.html' },
+    { title: '21st Century', description: 'Description of Section 4.', url: 'map.html' },
+  ];
+  
+  // Dynamically populate the timeline
+  function loadTimelineItems(data) {
+    data.forEach((item, index) => {
+      const timelineItem = document.createElement('div');
+      timelineItem.classList.add('timeline-item');
+      if (index === 0) timelineItem.classList.add('active'); // Highlight the first item initially
+  
+      timelineItem.innerHTML = `
         <h3>${item.title}</h3>
         <p>${item.description}</p>
-      </div>
-    `;
-
-    timeline.appendChild(timelineItem);
-  });
-}
-
-// Highlight the active timeline item
-function highlightActiveItem() {
-  const middle = window.innerWidth / 2;
-
-  const timelineItems = document.querySelectorAll('.timeline-item');
-  timelineItems.forEach((item) => {
-    const itemRect = item.getBoundingClientRect();
-    const itemCenter = itemRect.left + itemRect.width / 2;
-
-    if (Math.abs(itemCenter - middle) < itemRect.width / 2) {
-      item.classList.add('active');
-    } else {
-      item.classList.remove('active');
-    }
-  });
-}
-
-// Scroll the timeline with buttons
-function scrollTimeline(offset) {
-  timeline.scrollBy({ left: offset, behavior: 'smooth' });
-}
-
-// Event listener for scrolling
-timeline.addEventListener('scroll', highlightActiveItem);
-
-// Load timeline items and initialize
-loadTimelineItems(timelineData);
-highlightActiveItem();
+      `;
+  
+      // Add click event to navigate to the specified URL
+      timelineItem.addEventListener('click', () => {
+        window.location.href = item.url;
+      });
+  
+      timeline.appendChild(timelineItem);
+    });
+  }
+  
+  // Highlight the active section based on the screen width
+  function highlightActiveSection(index) {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach((item, i) => {
+      if (i === index) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+  }
+  
+  // Add event listeners for navigation via keyboard
+  function setupNavigation() {
+    let currentIndex = 0;
+  
+    document.addEventListener('keydown', (e) => {
+      const timelineItems = document.querySelectorAll('.timeline-item');
+      if (e.key === 'ArrowRight' && currentIndex < timelineItems.length - 1) {
+        currentIndex++;
+        highlightActiveSection(currentIndex);
+      } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
+        currentIndex--;
+        highlightActiveSection(currentIndex);
+      }
+    });
+  }
+  
+  // Load timeline items and initialize navigation
+  loadTimelineItems(timelineData);
+  setupNavigation();
+  
+  

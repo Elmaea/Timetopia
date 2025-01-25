@@ -68,101 +68,73 @@ body {
     margin: 0;
     padding: 0;
     background: #f9f9f9;
+    overflow: hidden;
   }
   
   .timeline-container {
     display: flex;
+    justify-content: center;
     align-items: center;
     height: 100vh;
     position: relative;
-    overflow: hidden;
   }
   
   .timeline {
     display: flex;
-    position: relative;
-    gap: 20px;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    padding: 20px;
-    width: 80%;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
   }
   
   .timeline-item {
-    flex: 0 0 300px;
-    height: 300px;
-    background-color: #fff;
-    border: 2px solid #ccc;
-    border-radius: 10px;
+    flex: 1; /* Each item takes equal space */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    transition: all 0.3s ease-in-out;
-    transform: scale(0.8);
-    opacity: 0.6;
+    transition: all 0.5s ease-in-out;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #f1f1f1;
+    border-right: 1px solid #ddd;
+    cursor: pointer; /* Makes the item look clickable */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .timeline-item:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3); /* Glow effect */
+  }
+  
+  .timeline-item:last-child {
+    border-right: none; /* Remove the border on the last item */
   }
   
   .timeline-item.active {
-    transform: scale(1);
-    opacity: 1;
-    border-color: #007bff;
+    background: #007bff;
+    color: #fff;
+    transform: scale(1.1); /* Emphasize active section */
+    z-index: 1;
     box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
   }
   
   .timeline-item h3 {
-    font-size: 20px;
-    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
   }
   
   .timeline-item p {
-    font-size: 14px;
-    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
   }
   
-  /* Navigation Button Styles */
-  .nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
-  }
-  
-  .nav-button:hover {
-    background: #0056b3;
-  }
-  
-  .nav-button.left {
-    left: 10px;
-  }
-  
-  .nav-button.right {
-    right: 10px;
-  }
-  
-  /* Scrollbar Styles */
-  .timeline::-webkit-scrollbar {
-    height: 8px;
-  }
-  
-  .timeline::-webkit-scrollbar-thumb {
-    background: #007bff;
-    border-radius: 10px;
-  }
-  
-  .timeline::-webkit-scrollbar-track {
-    background: #f1f1f1;
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .timeline-item h3 {
+      font-size: 20px;
+    }
+    .timeline-item p {
+      font-size: 14px;
+    }
   }
   
