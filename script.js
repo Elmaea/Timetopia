@@ -5,10 +5,10 @@ function navigate(page) {
   
   const timeline = document.querySelector('.timeline');
   const timelineData = [
-    { title: '18th Century', description: 'Description of Section 1.', url: 'map.html?era=18th' },
-    { title: '19th Century', description: 'Description of Section 2.', url: 'map.html?era=19th' },
-    { title: '20th Century', description: 'Description of Section 3.', url: 'map.html?era=20th' },
-    { title: '21st Century', description: 'Description of Section 4.', url: 'map.html?era=21st' },
+    { title: '18th Century', description: 'An era of revolutions and enlightenment, marked by the rise of modern science, industrialization, and the American and French Revolution', url: 'map.html?era=18th' },
+    { title: '19th Century', description: 'The age of empires, innovation, and reform, featuring the Industrial Revolution, abolition movements, and the rise of nationalism worldwide', url: 'map.html?era=19th' },
+    { title: '20th Century', description: 'A century of transformation and turbulence, with two World Wars, the Space Race, and the dawn of the digital age', url: 'map.html?era=20th' },
+    { title: '21st Century', description: 'A time of global connectivity, rapid technological advancement, and challenges like climate change shaping the future of humanity.', url: 'map.html?era=21st' },
   ];
   
   // Dynamically populate the timeline
@@ -63,8 +63,5 @@ function navigate(page) {
   // Load timeline items and initialize navigation
   loadTimelineItems(timelineData);
   setupNavigation();
-  
 
 
-  
-  

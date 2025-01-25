@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Time</title>
+  <style>
+    body {
+      font-family: 'MS UI Gothic', sans-serif;
+      color: #333;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('DALL·E 2025-01-25 22.59.23 - A vintage-style background illustration with warm earthy tones, resembling an aged parchment or an antique map. It includes subtle textures like faded.webp'); /* Replace with your image path */
+      background-size: cover;
+
+      background-repeat: no-repeat;
+      filter: sepia(30%) brightness(0.8);  /* Darkens the background image */
+      z-index: -1; /* Places the overlay behind the content */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .quiz-container {
+      background: #ffffff;
+      padding: 100px;
+      border-radius: 15px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      animation: slideIn 0.5s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .heading {
+      font-size: 3em;
+      font-weight: bold;
+      color: #35582f;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .question {
+      font-size: 1.4em;
+      margin: 20px 0;
+      color: #555;
+    }
+
+    .option {
+      display: block;
+      margin: 10px 0;
+      
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #c4a16c;
+      color: white;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 10px rgba(37, 136, 154, 0.4);
+    }
+
+    .option:hover {
+      background: #2563eb;
+      transform: scale(1.05);
+    }
+
+    .score {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #10b981;
+      margin-bottom: 20px;
+    }
+
+    .restart {
+      background: #10b981;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 5px 10px rgba(16, 185, 129, 0.4);
+    }
+
+    .restart:hover {
+      background: #059669;
+      transform: scale(1.1);
+    }
+
+    .fade-in {
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="heading">Quiz Time</div>
+    <div class="question fade-in" id="question">Question text will go here</div>
+    <div id="options"></div>
+    <div class="score" id="score" style="display: none;">You scored <span id="score-value">0</span></div>
+    <button class="restart" id="restart" style="display: none;">Need Another Try ?</button>
+  </div>
+
+  <script>
+     const questions = [
+    {
+      questionText: "Who was the first President of the United States?",
+      options: [
+        { answerText: "Thomas Jefferson", isCorrect: false },
+        { answerText: "Abraham Lincoln", isCorrect: false },
+        { answerText: "George Washington", isCorrect: true },
+        { answerText: "John Adams", isCorrect: false },
+      ],
+    },
+    {
+      questionText: "Which ancient civilization built the Pyramids?",
+      options: [
+        { answerText: "Romans", isCorrect: false },
+        { answerText: "Egyptians", isCorrect: true },
+        { answerText: "Greeks", isCorrect: false },
+        { answerText: "Babylonians", isCorrect: false },
+      ],
+    },
+    {
+      questionText: "What was the name of the ship that carried the Pilgrims to America in 1620?",
+      options: [
+        { answerText: "Titanic", isCorrect: false },
+        { answerText: "Santa Maria", isCorrect: false },
+        { answerText: "Mayflower", isCorrect: true },
+        { answerText: "Victory", isCorrect: false },
+      ],
+    },
+    {
+      questionText: "In which year did India gain independence from Britain?",
+      options: [
+        { answerText: "1945", isCorrect: false },
+        { answerText: "1947", isCorrect: true },
+        { answerText: "1950", isCorrect: false },
+        { answerText: "1935", isCorrect: false },
+      ],
+    },
+    {
+      questionText: "Who is known as the 'Father of the Indian Constitution'?",
+      options: [
+        { answerText: "Mahatma Gandhi", isCorrect: false },
+        { answerText: "B. R. Ambedkar", isCorrect: true },
+        { answerText: "Jawaharlal Nehru", isCorrect: false },
+        { answerText: "Sardar Patel", isCorrect: false },
+      ],
+    },
+    {
+      questionText: "Which war was fought between the North and South regions of the United States?",
+      options: [
+        { answerText: "World War I", isCorrect: false },
+        { answerText: "American Civil War", isCorrect: true },
+        { answerText: "Vietnam War", isCorrect: false },
+        { answerText: "Revolutionary War", isCorrect: false },
+      ],
+    },
+    {
+      questionText: "Who discovered America in 1492?",
+      options: [
+        { answerText: "Christopher Columbus", isCorrect: true },
+        { answerText: "Marco Polo", isCorrect: false },
+        { answerText: "Vasco da Gama", isCorrect: false },
+        { answerText: "Ferdinand Magellan", isCorrect: false },
+      ],
+    },
+    {
+      questionText: "Which empire was ruled by Julius Caesar?",
+      options: [
+        { answerText: "Greek Empire", isCorrect: false },
+        { answerText: "Roman Empire", isCorrect: true },
+        { answerText: "Byzantine Empire", isCorrect: false },
+        { answerText: "Persian Empire", isCorrect: false },
+      ],
+    },
+    {
+      questionText: "What was the Great Wall of China built to protect against?",
+      options: [
+        { answerText: "Mongols", isCorrect: true },
+        { answerText: "Romans", isCorrect: false },
+        { answerText: "Japanese", isCorrect: false },
+        { answerText: "Russians", isCorrect: false },
+      ],
+    },
+    {
+      questionText: "Father of Electricity?",
+      options: [
+        { answerText: "Neils Bohr", isCorrect: false },
+        { answerText: "Nicholas Tesla", isCorrect: false },
+        { answerText: "Michael Faraday", isCorrect: true },
+        { answerText: "Isaac Newton", isCorrect: false },
+      ],
+    },
+  ];
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    const questionElement = document.getElementById("question");
+    const optionsElement = document.getElementById("options");
+    const scoreElement = document.getElementById("score");
+    const scoreValueElement = document.getElementById("score-value");
+    const restartButton = document.getElementById("restart");
+
+    function showQuestion() {
+      const currentQuestion = questions[currentQuestionIndex];
+      questionElement.textContent = currentQuestion.questionText;
+      questionElement.classList.add("fade-in");
+      optionsElement.innerHTML = "";
+
+      currentQuestion.options.forEach((option) => {
+        const button = document.createElement("button");
+        button.textContent = option.answerText;
+        button.className = "option";
+        button.addEventListener("click", () => handleAnswer(option.isCorrect));
+        optionsElement.appendChild(button);
+      });
+    }
+
+    function handleAnswer(isCorrect) {
+      if (isCorrect) {
+        score++;
+      }
+      currentQuestionIndex++;
+
+      if (currentQuestionIndex < questions.length) {
+        showQuestion();
+      } else {
+        showScore();
+      }
+    }
+
+    function showScore() {
+      questionElement.style.display = "none";
+      optionsElement.style.display = "none";
+      scoreElement.style.display = "block";
+      restartButton.style.display = "block";
+      scoreValueElement.textContent = score;
+    }
+
+    function restartQuiz() {
+      currentQuestionIndex = 0;
+      score = 0;
+      questionElement.style.display = "block";
+      optionsElement.style.display = "block";
+      scoreElement.style.display = "none";
+      restartButton.style.display = "none";
+      showQuestion();
+    }
+
+    restartButton.addEventListener("click", restartQuiz);
+
+    showQuestion();
+  </script>
+</body>
+</html>
