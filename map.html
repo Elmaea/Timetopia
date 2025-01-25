@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historical Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+    #era-info {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: white;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div id="era-info">Loading...</div>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Get the selected era from the URL
+    const params = new URLSearchParams(window.location.search);
+    const era = params.get('era');
+
+    // Era details
+    const eraDetails = {
+      '18th': "18th Century: Age of Enlightenment, early Industrial Revolution.",
+      '19th': "19th Century: Industrial Revolution, rise of empires.",
+      '20th': "20th Century: World Wars, Cold War, space race.",
+      '21st': "21st Century: Digital age, global challenges."
+    };
+
+    // Display era info
+    document.getElementById('era-info').innerText = eraDetails[era] || "Unknown Era";
+
+    // Initialize the map
+    const map = L.map('map').setView([20, 0], 2); // Centered at latitude 20, longitude 0
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Era-specific data
+    const eraData = {
+      '18th': [
+        { name: "American Revolution", lat: 38.9072, lng: -77.0369 },
+        { name: "Industrial Revolution Beginnings", lat: 51.5074, lng: -0.1278 }
+        
+      ],
+      '19th': [
+        { name: "British Empire Expansion", lat: 51.5074, lng: -0.1278 },
+        { name: "Meiji Restoration (Japan)", lat: 35.6895, lng: 139.6917 }
+      ],
+      '20th': [
+        { name: "World War II Europe", lat: 48.8566, lng: 2.3522 },
+        { name: "Space Race (USA)", lat: 29.7604, lng: -95.3698 }
+      ],
+      '21st': [
+        { name: "Global Technology Hub", lat: 37.7749, lng: -122.4194 },
+        { name: "Sustainability Efforts", lat: 55.7558, lng: 37.6173 }
+      ]
+    };
+
+    // Add markers to the map for the selected era
+    if (eraData[era]) {
+      eraData[era].forEach(location => {
+        L.marker([location.lat, location.lng])
+          .addTo(map)
+          .bindPopup(`<b>${location.name}</b>`);
+      });
+    } else {
+      alert('No data available for this era.');
+    }
+  </script>
+</body>
+</html>
