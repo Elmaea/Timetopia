@@ -5,10 +5,10 @@ function navigate(page) {
   
   const timeline = document.querySelector('.timeline');
   const timelineData = [
-    { title: '18th Century', description: 'Description of Section 1.', url: 'map.html' },
-    { title: '19th Century', description: 'Description of Section 2.', url: 'map.html' },
-    { title: '20th Century', description: 'Description of Section 3.', url: 'map.html' },
-    { title: '21st Century', description: 'Description of Section 4.', url: 'map.html' },
+    { title: '18th Century', description: 'Description of Section 1.', url: 'map.html?era=18th' },
+    { title: '19th Century', description: 'Description of Section 2.', url: 'map.html?era=19th' },
+    { title: '20th Century', description: 'Description of Section 3.', url: 'map.html?era=20th' },
+    { title: '21st Century', description: 'Description of Section 4.', url: 'map.html?era=21st' },
   ];
   
   // Dynamically populate the timeline
