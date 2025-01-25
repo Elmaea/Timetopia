@@ -5,11 +5,27 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
+            "name": "Launch Edge",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "type": "msedge",
             "url": "http://localhost:8080",
+            "webRoot": "
+    "
+        },
+        {
+            "name": "Attach to Edge",
+            "port": 9222,
+            "request": "attach",
+            "type": "msedge",
             "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "pwa-chrome",
+                "request": "launch",
+                "name": "Launch Chrome",
+                "url": "http://localhost:3000",
+                "runtimeExecutable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+              
         }
     ]
 }

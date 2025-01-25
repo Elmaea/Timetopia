@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulation</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url('DALL·E 2025-01-25 22.59.23 - A vintage-style background illustration with warm earthy tones, resembling an aged parchment or an antique map. It includes subtle textures like faded.webp'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    }
+    
+    .container{
+        align-items: center;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+      font-family: showcard gothic;
+      text-align: center;
+    }
+
+    /* Style for the simulation title */
+    #simulation-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    /* Question Section */
+    #question-section {
+      margin-bottom: 30px;
+    }
+
+    .options button {
+      background-color: #302e1a;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .options button:hover {
+      background-color: #656241;
+    }
+
+    /* Next Button */
+    #next-button {
+      background-color: #523b18;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+      display: none;
+      align-items: end;
+    }
+
+    #next-button:hover {
+      background-color: #007B9A;
+    }
+
+    /* Go Back Button */
+    #go-back-button {
+      background-color: #f44336;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+      display: none;
+    }
+
+    #go-back-button:hover {
+      background-color: #e53935;
+    }
+
+    /* Styling for loading state */
+    .loading {
+      font-size: 18px;
+      color: #666;
+    }
+
+    /* Style for when the page has no questions */
+    .no-questions {
+      font-size: 18px;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="simulation-title">hello</h1> <!-- Title of the simulation -->
+    
+    <!-- Question Section -->
+    <div id="question-section"></div>
+    
+    <!-- Next Button -->
+    <button id="next-button" onclick="nextQuestion()">Next Question</button>
+    
+    <!-- Go Back Button (optional) -->
+    <button id="go-back-button" onclick="goBack()">Go Back</button>
+  </div>
+  <script src="simulation.js"></script>
+</body>
+</html>
