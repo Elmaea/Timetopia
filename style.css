@@ -33,8 +33,10 @@ body.homepage{
     font-size: 8rem;
     font-family: Showcard gothic;
     font-weight: bold;
-    margin-bottom: 100px;
+    margin-bottom: 90px;
     margin-top: 90px;
+    margin-left:100px;
+    
     color:rgb(75, 75, 35);
     
   }
@@ -43,6 +45,7 @@ body.homepage{
     font-size: 2.5rem;
     color: #5a4a3a;
     margin-bottom: 30px;
+    margin-left:130px;
   }
   
   /* Button Group */
@@ -51,6 +54,7 @@ body.homepage{
     gap: 15px;
     justify-content: center;
     margin-bottom: 30px;
+    margin-left: 100px;
   }
   
   .button-group button {
@@ -68,19 +72,12 @@ body.homepage{
   .button-group button:hover {
     background-color: #c4a174;
   }
-  
-  /* Footer */
-  .footer {
-    font-size: 0.9rem;
-    color: #5a4a3a;
-    margin-top: 100px;
-  }
+
   
 
   /* for timeline */
   body {
     font-family:MS UI Gothic, sans-serif;
-    
     margin: 0;
     padding: 0;
     background: #f9f9f9;
@@ -180,12 +177,6 @@ body.homepage{
     margin-right: 10px;  /* Space between avatar and chat */
   }
   
-  .chat-container {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;  /* Vertically center the chat text */
-    padding-left: 10px;
-  }
   
   #response {
     font-size: 16px;
