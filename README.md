@@ -35,6 +35,7 @@ For Software:
 For Software:
 1.Planning the Structure
 2.Setting Up the HTML Structure
+3.Plan API integrations which include Leaflet.js for maps .
 3.Styling with CSS
 4.Adding Interactivity with JavaScript
 
