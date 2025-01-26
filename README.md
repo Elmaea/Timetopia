@@ -17,10 +17,10 @@ Hosted link is given below: https://timetopia.vercel.app/
 Timetopia is an interactive timeline project that enables users to explore and navigate events or milestones in an engaging and organized way. The platform focuses on simplicity and ease of use, allowing users to view chronological data with features like basic interactivity and clean visuals. Timetopia aims to provide an effective solution for presenting information, whether for educational, historical, or personal purposes, while keeping the design intuitive and user-friendly.
 
 ### The Problem statement
-"History often feels dry and disconnected in traditional formats, leaving many people disengaged from learning about the past. The problem lies in making history accessible, interactive, and enjoyable, especially for younger generations. Timetopia solves this by transforming historical learning into an immersive experience that combines interactivity, storytelling, making the past feel alive and relevant today."
+History often feels dry and disconnected in traditional formats, leaving many people disengaged from learning about the past. The problem lies in making history accessible, interactive, and enjoyable, especially for younger generations. Timetopia solves this by transforming historical learning into an immersive experience that combines interactivity, storytelling, making the past feel alive and relevant today.
 
 ### The Solution
-"Timetopia is like a time machine, but way cooler and less complicated! We’re solving the ‘boring history blues’ with an interactive platform that makes history exciting. Dive into dynamic timelines, explore maps of diiferent timelines,and experience how a day in the life of historical figures is. Add quizzes and voilà — history becomes an adventure, not a snooze-fest!"
+Timetopia is like a time machine, but way cooler and less complicated! We’re solving the ‘boring history blues’ with an interactive platform that makes history exciting. Dive into dynamic timelines, explore maps of diiferent timelines,and experience how a day in the life of historical figures is. Add quizzes and voilà — history becomes an adventure, not a snooze-fest!
 
 ## Technical Details
 ### Technologies/Components Used
