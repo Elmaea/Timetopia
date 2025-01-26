@@ -51,7 +51,8 @@ For Software:
 -The home page of Timetopia, showcasing the elegant and historical theme. Users can choose between exploring a timeline, taking a quiz, or experiencing the "Day in the Life" feature.
 
 !TIMELINE PAGE
-[WhatsApp Image 2025-01-26 at 8 49 36 AM](https://github.com/user-attachments/assets/559675b7-c36b-4c35-846b-2a466539583e)
+![WhatsApp Image 2025-01-26 at 8 49 36 AM](https://github.com/user-attachments/assets/c97ca9b6-f871-443f-a3e1-71b336f73efc)
+
 -The timeline feature allows users to explore different centuries interactively, highlighting key historical eras like the 18th to 21st centuries with concise descriptions.
 
 !Historical Map Page
